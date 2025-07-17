@@ -1,4 +1,4 @@
-// In this file I learn how behind the seene any bunndler works under the hood
+// Ep:2  In this file I learn how behind the seene any bunndler works under the hood
 
 /*
  *** Parcel Feature ***
@@ -31,6 +31,7 @@
 <div>
 */
 
+// React.createElement(tag, attribute, children)
 const parent = React.createElement("div", {id: "parent"}, [ React.createElement("h1", {}, "Hello from React parent"),
   React.createElement("div", {id: "child"}, [React.createElement("h1", {}, "Hello from React"), React.createElement("h2", {}, "Subheading")]),
   React.createElement("div", {id: "2"}, [React.createElement("h1", {}, "Hello from React child 2"), React.createElement("h2", {}, "Subheadin 2")])
@@ -39,6 +40,7 @@ const parent = React.createElement("div", {id: "parent"}, [ React.createElement(
 
 const heading = React.createElement("h1", {}, "Hello from React");
 
+// ReactDOM.render(what to render, where to render)
   const root = ReactDOM.createRoot(document.getElementById("root"));
   
   // console.log(heading); // object
