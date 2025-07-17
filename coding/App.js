@@ -1,3 +1,27 @@
+// In this file I learn how behind the seene any bunndler works under the hood
+
+/*
+ *** Parcel Feature ***
+ * Zero Config
+ * HMR - Hot Module Replacement - utilizes a File Watcher algorithm implemented in C++ to execute files upon detecting changes
+ * cashing- while development
+ * Image Optimization
+ * Caching while development
+ * Compress
+ * Differential bundling - support old browsers
+ * HTTPS on dev [Example - npx parcel index.html --https]
+ * Port Number [Example - If port number using in localhost then it will change in port number in another project running on localhost]
+ * Consistent Hashing Algorithm
+ * Tree shaking
+ * Diagnostics - Error reporting
+ *
+ *  * Cleaning our Code (Example - Remove Console.log)
+ * Dev and Production Build
+ * Super Fast build algorithm
+ *
+ * Transitive Dependencies - Dependencies of dependencies
+ */
+
 /* 
 <div id = "parent">
   <div id = "child">
