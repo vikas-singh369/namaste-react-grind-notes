@@ -31,6 +31,8 @@
 <div>
 */
 
+import React from "react";
+import ReactDOM from "react-dom/client";
 // React.createElement(tag, attribute, children)
 const parent = React.createElement("div", {id: "parent"}, [ React.createElement("h1", {}, "Hello from React parent"),
   React.createElement("div", {id: "child"}, [React.createElement("h1", {}, "Hello from React"), React.createElement("h2", {}, "Subheading")]),
@@ -43,6 +45,11 @@ const heading = React.createElement("h1", {}, "Hello from React");
 // ReactDOM.render(what to render, where to render)
   const root = ReactDOM.createRoot(document.getElementById("root"));
   
-  // console.log(heading); // object
+  console.log(heading); // object
 
-  root.render(parent);
+  const jsxHeading = <h1>Hello from React using JSX</h1>;
+
+  console.log(jsxHeading);// object
+
+  // root.render(parent);
+  root.render(jsxHeading);
