@@ -1,0 +1,26 @@
+{
+  "name": "namaste-react-grind-notes",
+  "version": "1.0.0",
+  "description": "exploring and learn react in deapth",
+  "keywords": [
+    "react",
+    "node",
+    "javascript"
+  ],
+  "homepage": "https://github.com/vikas-singh369/namaste-react-grind-notes#readme",
+  "bugs": {
+    "url": "https://github.com/vikas-singh369/namaste-react-grind-notes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikas-singh369/namaste-react-grind-notes.git"
+  },
+  "license": "ISC",
+  "author": "vikas singh",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
