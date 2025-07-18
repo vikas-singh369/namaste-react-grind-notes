@@ -29,24 +29,21 @@ React reacts -- thats the point
 The crossorigin attribute enables CORS(Cross-Origin Resource Sharing) to load external js files from another origin.
 
 ## 6. Difference between React and ReactDOM
-**React:**  
-**React:**  
-React is the core library used to build UI components. It handles the logic, state, and structure of the user interface.
+**React :**   is the core library used to build UI components. It handles the logic, state, and structure of the user interface.
 
-**ReactDOM:**  
-ReactDOM connects those components to the actual DOM in the browser. It provides methods to mount, update, and unmount components in the actual DOM.
+**ReactDOM :** connects those components to the actual DOM in the browser. It provides methods to mount, update, and unmount components in the actual DOM.
 
 ## 7. What is react.development.js and react.production.js?
-development = debug, production = performance
-**react.development.js:**
- It includes warnings, error messages, and extra checks to help with debugging.
+development = debug, production = performance.
 
-**react.production.js:**
-It’s minified and optimized for performance by removing all development-related code and warnings.
+**react.development.js :** It includes warnings, error messages, and extra checks to help with debugging.
+
+**react.production.js :** It’s minified and optimized for performance by removing all development-related code and warnings.
 
 
 ## 8. Difference between async and defer ?
 async and differ are boolean attributes which are used along of script tag to load the externals script efficiently into our app.
+
 **async:** 
 - loads the script in parallel with the HTML parsing.
 - Executes the script immediately **after it’s downloaded**.
