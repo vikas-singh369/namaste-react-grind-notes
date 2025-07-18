@@ -21,8 +21,8 @@ instant of writng long React.createElement() , JSX makes easier HTML like code.
 
 ## 3. Role of type attributes in script tag ? 
 
-It tells browser which kind of script is inside (
-  javascript , module, json, etc)
+It tells browser which kind of script is inside ( javascript , module, json, etc).
+ MIME type (Multipurpose Internet Mail Extensions)
 
 Common `type` values
 - `text/javascript` - Default javascript( can be skipped)
