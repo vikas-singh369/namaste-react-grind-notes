@@ -59,3 +59,5 @@ async and differ are boolean attributes which are used along of script tag to lo
 - Maintains the **execution order** of multiple scripts.
 
 - Best for scripts that depend on DOM.
+
+[Code](../coding/index.html)
