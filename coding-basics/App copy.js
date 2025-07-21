@@ -1,4 +1,6 @@
-import React from "react";
+// ep:4 Talk is cheap , show me the code
+
+
 import ReactDom from "react-dom/client"
 
 /* 
@@ -84,17 +86,3 @@ const AppLayout = ()=>{
 
 
   root.render(<AppLayout />)
-
-
-
-
-
-
-
-
-
-// Root creation
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-
-// 📦 Rendering our Final Component
-// root.render(<HeadingComponent />);
