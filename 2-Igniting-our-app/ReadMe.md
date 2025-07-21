@@ -121,4 +121,4 @@ It is a directory where parcel stores all the cached files. It is used to speed 
 - Diffrencial bundling - Supports modern & older browsers separately
 - Image optimizations - auto compress image to optimize it.
 
-[Code files](../coding/App.js)
+[Code files](../coding-basics/App.js)

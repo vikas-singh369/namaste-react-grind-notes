@@ -35,4 +35,4 @@ Common `type` values
 
 - `text/typescript` - TypeScript(requires compiler)
 
-[Code](../coding/App.js)
+[Code](../coding-basics/App.js)
