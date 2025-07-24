@@ -1,0 +1,31 @@
+{
+  "name": "coding-advanced",
+  "version": "1.0.0",
+  "description": "react power exploring in depth.",
+  "keywords": [
+    "React"
+  ],
+  "homepage": "https://github.com/vikas-singh369/namaste-react-grind-notes#readme",
+  "bugs": {
+    "url": "https://github.com/vikas-singh369/namaste-react-grind-notes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikas-singh369/namaste-react-grind-notes.git"
+  },
+  "license": "ISC",
+  "author": "vikas singh",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
