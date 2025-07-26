@@ -1,23 +1,23 @@
+import {IMAGE_ASSEST_CDN_URL }  from "../utils/constant"
 const RestaurantCard = ({ resData }) => {
-  const { name, avgRating, cuisines, costForTwo,cloudinaryImageId
- } = resData;
+  const { name, avgRating, cuisines, costForTwo, sla, cloudinaryImageId } = resData;
 
   return (
-    <div className="card">
-      <img
-        className="card-img"
-        alt="res-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/flkrqw93czpwolppunn4"
-      />
+<article className="card">
+  <img
+    className="card-img"
+    alt={name ? `${name} image` : "Restaurant image"}
+    src={`${IMAGE_ASSEST_CDN_URL}${cloudinaryImageId}`}
+  />
+  <section className="card-content">
+    <h3>{name || "Unnamed Restaurant"}</h3>
+    <p><strong>Rating:</strong> {avgRating ?? "N/A"}</p>
+    <p><strong>Cost for Two:</strong> {costForTwo ?? "Unknown"}</p>
+    <p><strong>Delivery Time:</strong> {sla?.deliveryTime ?? "--"} min</p>
+    <p><strong>Cuisines:</strong> {cuisines?.join(", ") || "Unlisted"}</p>
+  </section>
+</article>
 
-      <div className="card-details">
-        <h2>{name}</h2>
-        <h3>{avgRating}</h3>
-        <p>{costForTwo}</p>
-        <p>45-50 min</p>
-        <p>{cuisines.join(" ,")}</p>
-      </div>
-    </div>
   );
 };
 

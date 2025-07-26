@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import localData from "../utils/swiggyData.json";
+
 const Body = () => {
   const [list, setList] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -17,6 +18,8 @@ const Body = () => {
       const restaurants =
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
+
+      console.log("restaurant", restaurants);
       setList(restaurants);
       setFiltervalue(restaurants);
     } catch (error) {
@@ -36,36 +39,38 @@ const Body = () => {
   return list.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="filter">
-      <input
-        type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />{" "}
-      <button
-        onClick={() => {
-          const filtervalue = list.filter((res) =>
-            res.data.name.toLowerCase().includes(searchText.toLowerCase())
-          );
-          console.log(filtervalue);
-          setFiltervalue(filtervalue);
-        }}
-      >
-        search
-      </button>
-      <div className="search">
+    <div className="body-container">
+      <div className="filter">
+        <div className="search">
+          <input
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />{" "}
         <button
           onClick={() => {
-            const filterList = list.filter((res) => res.data.avgRating > 4.2);
+            const filtervalue = list.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setFiltervalue(filtervalue);
+          }}
+        >
+          search
+        </button>
+        </div>
+        <button
+          onClick={() => {
+            const filterList = list.filter((res) => res.info.avgRating > 4.2);
             setFiltervalue(filterList);
           }}
         >
           top rated restaurant
         </button>
       </div>
+
       <div className="res-container">
         {filtervalue.map((res) => (
-          <RestaurantCard key={res?.data?.id} resData={res?.data} />
+          <RestaurantCard key={res?.info?.id} resData={res?.info} />
         ))}
       </div>
     </div>
