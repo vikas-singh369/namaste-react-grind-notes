@@ -26,6 +26,19 @@ This repository is structured into multiple folders, each focusing on a specific
 
 ---
 
-### 🔹 [5-let's-get-hooked](./5-let's-get-hooked/)
+### 🔹 [5-let's-get-hooked](./src)
+- Clean up your code
+- Create a Folder Structure for your app
+- Make different files for each Components
+
+- Create a config file ( I create as a contatant file)
+- Use all types of import and export
+- Create a Search Box in your App
+- Use useState to create a variable and bind it to the input box
+- Try to make your search bar work
+
+### 🔹 [6-Exploring the world](./src)
+
+
 
 > *(Coming soon...)*
