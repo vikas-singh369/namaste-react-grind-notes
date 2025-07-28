@@ -43,20 +43,20 @@ const Body = () => {
       <div className="filter">
         <div className="search">
           <input
-          type="text"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />{" "}
-        <button
-          onClick={() => {
-            const filtervalue = list.filter((res) =>
-              res.info.name.toLowerCase().includes(searchText.toLowerCase())
-            );
-            setFiltervalue(filtervalue);
-          }}
-        >
-          search
-        </button>
+            type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />{" "}
+          <button
+            onClick={() => {
+              const filtervalue = list.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFiltervalue(filtervalue);
+            }}
+          >
+            search
+          </button>
         </div>
         <button
           onClick={() => {
