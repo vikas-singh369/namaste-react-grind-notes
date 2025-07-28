@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { LOGO_URL } from "../utils/constant";
+import { Link } from "react-router";
 const Header = () => {
-  console.log("heder render")
+  console.log("heder render");
 
-  const [btnName, setBtName] = useState("login"); 
+  const [btnName, setBtName] = useState("login");
 
-  
   return (
     <div className="header">
       <div>
@@ -14,15 +14,21 @@ const Header = () => {
 
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button
-          className="btnName"
-          onClick={()=>{
-            btnName === "login" ? setBtName("logout"): setBtName("login");
-          }}
+            className="btnName"
+            onClick={() => {
+              btnName === "login" ? setBtName("logout") : setBtName("login");
+            }}
           >
             {btnName}
           </button>
