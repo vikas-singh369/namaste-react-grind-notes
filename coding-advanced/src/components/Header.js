@@ -24,6 +24,7 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>Cart</li>
+          <Link to= "/login">
           <button
             className="btnName"
             onClick={() => {
@@ -32,6 +33,7 @@ const Header = () => {
           >
             {btnName}
           </button>
+          </Link>
         </ul>
       </div>
     </div>

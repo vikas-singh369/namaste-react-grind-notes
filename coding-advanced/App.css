@@ -84,3 +84,13 @@
 .btnName {
   padding: 5px;
 }
+
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+.sign-up-link{
+  text-decoration: underline;
+  color: blue;
+}
