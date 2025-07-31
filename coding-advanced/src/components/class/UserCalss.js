@@ -3,21 +3,27 @@ import React from "react";
 // Creating a class-based component that extends React.Component
 class UserClass extends React.Component {
   constructor(props) {
-    super(props); // ✅ Must call super(props) to use `this.props` in constructor
+    console.log("child counstructor");
 
-    // ✅ Initializing component's state (like internal data)
+    super(props); // Must call super(props) to use `this.props` in constructor
+
+    // Initializing component's state (like internal data)
     this.state = {
       count: 1,
       count2: 2,
     };
   }
 
-  // ✅ render() is a required method in class components — it returns JSX
+  componentDidMount(){
+    console.log("Child componennt did mount")
+  }
+
+  // render() is a required method in class components — it returns JSX
   render() {
-    // ✅ Destructuring state values
+    console.log("Child render called");
+
     const { count, count2 } = this.state;
 
-    // ✅ Destructuring props passed from parent component
     const { name, location } = this.props;
 
     return (
@@ -29,7 +35,7 @@ class UserClass extends React.Component {
         <button 
           onClick={() => {
             this.setState({
-              count: this.state.count + 1, // ✅ Only 'count' gets updated, 'count2' stays the same
+              count: this.state.count + 1, //  Only 'count' gets updated, 'count2' stays the same
             });
           }}
         >
