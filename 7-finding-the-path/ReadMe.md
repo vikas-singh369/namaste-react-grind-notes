@@ -44,7 +44,7 @@ function RestaurantMenuBanner() {
 **3. using `public` folder** 
 if image stored in public folder, we can refrence it directly with a relative URL from the root
 
-* Good for the static images.
+*This method is useful for handling large image assets or for dynamic image URLs.
 
 ```
 <img src = "/logo.png" alt = "logo" />
@@ -75,12 +75,23 @@ console.log(result) // undefined , function
 
 ## How will useEffect behave if we don't add a dependency array ?
 
-if we don't add dependecy array to `useEffect`, it runs after every time when componet re-render. intial mount and also every render subsequent ones because React can't optimize when to skip it.
+if we don't add dependecy array to `useEffect`, it runs after every time when componet re-render. intial mount and also every subsequent ones because React can't optimize when to skip it.
 
 when we pass empty dependecy array its run for only initial mount.
 
 ## What is SPA?
 SPA(Single Page Application) is a web app that loads ones and updates the UI dynamically without refreshing the entire page.We just interchange the components.
+
+### key features of SPAs include
+- dynamic updates: content is loaded and update without full page reload.This is achieved by client side routing.
+
+- Smooth user experience
+- Faster Initial load
+- Client Side routing
+- State management
+- API centric: - e the client
+communicates with a backend API to fetch and send data, usually in JSON format.
+This allows for decoupling the front end and back end.
 
 ## What is difference between Client Side Routing and Server Side Routing?
 
@@ -91,3 +102,6 @@ SPA(Single Page Application) is a web app that loads ones and updates the UI dyn
 
 
 summary: Client-side routing updates the UI using JavaScript without reloading the page, while server-side routing loads a whole new page from the server on every navigation.
+
+
+**By vikas singh**

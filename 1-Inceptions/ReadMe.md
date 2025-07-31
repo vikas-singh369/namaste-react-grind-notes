@@ -61,3 +61,5 @@ async and differ are boolean attributes which are used along of script tag to lo
 - Best for scripts that depend on DOM.
 
 [Code](../coding-basics/index.html)
+
+**By vikas singh**

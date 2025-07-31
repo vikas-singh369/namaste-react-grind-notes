@@ -36,3 +36,5 @@ Common `type` values
 - `text/typescript` - TypeScript(requires compiler)
 
 [Code](../coding-basics/App.js)
+
+**By vikas singh**

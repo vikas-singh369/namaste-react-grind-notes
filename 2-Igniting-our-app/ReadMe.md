@@ -122,3 +122,6 @@ It is a directory where parcel stores all the cached files. It is used to speed 
 - Image optimizations - auto compress image to optimize it.
 
 [Code files](../coding-basics/App.js)
+
+
+**By vikas singh**
