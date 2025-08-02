@@ -67,3 +67,4 @@ const appRouter = createBrowserRouter([
 In Both ways using `<Outlet />` to the parent component to render based on the click and route child component.
 
 
+## Read abt createHashRouter, createMemoryRouter from React Router docs.
