@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ShimmerMenu from "./ShimmerMenu";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [menuInfo, setMenuInfo] = useState(null);
-
   const { resId } = useParams();
   console.log(resId);
 
-  const fetchMenu = async () => {
-    try {
-      const data = await fetch(
-        `https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=${resId}`
-      );
-
-      const resMenu = await data.json();
-      setMenuInfo(resMenu);
-    } catch (error) {
-      console.error("Getting Error during fetching the restaurant menu info.", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
+  // custom hook 
+  const menuInfo = useRestaurantMenu(resId)
 
   if (menuInfo === null) return <ShimmerMenu />;
 
