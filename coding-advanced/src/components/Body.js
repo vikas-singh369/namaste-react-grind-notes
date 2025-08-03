@@ -3,11 +3,14 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import localData from "../utils/swiggyData.json";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [list, setList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filtervalue, setFiltervalue] = useState([]);
+
+  const onlineStatus = useOnlineStatus();
 
   const fetchData = async () => {
     try {
@@ -25,16 +28,26 @@ const Body = () => {
       setFiltervalue(restaurants);
     } catch (error) {
       console.warn("API failed, using local JSON data instead");
-      const fallbackRestaurants =
-        localData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-      setList(fallbackRestaurants);
-      setFiltervalue(fallbackRestaurants);
+      if (onlineStatus) {
+        const fallbackRestaurants =
+          localData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants;
+        setList(fallbackRestaurants);
+        setFiltervalue(fallbackRestaurants);
+      }
     }
   };
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (!onlineStatus) {
+    return (
+      <div>
+        <h1>Tu offline chala gya bhai thoda check kar network kya huwa</h1>
+      </div>
+    );
+  }
 
   // conditional rendering
   return list.length === 0 ? (
@@ -71,8 +84,12 @@ const Body = () => {
 
       <div className="res-container">
         {filtervalue.map((res) => (
-          <Link key={res?.info?.id} to = {`/restaurant/${res?.info?.id}`}  className="res-list">
-          <RestaurantCard resData={res?.info} />
+          <Link
+            key={res?.info?.id}
+            to={`/restaurant/${res?.info?.id}`}
+            className="res-list"
+          >
+            <RestaurantCard resData={res?.info} />
           </Link>
         ))}
       </div>
