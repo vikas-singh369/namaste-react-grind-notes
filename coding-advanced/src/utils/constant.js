@@ -6,3 +6,4 @@ export const IMAGE_ASSEST_CDN_URL = "https://media-assets.swiggy.com/swiggy/imag
 export const MENU_API ="https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId="
 
 
+export const FOOD_API="https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING"
