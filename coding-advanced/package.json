@@ -22,10 +22,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "formik": "^2.4.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.7.1"
+    "react-router-dom": "^7.7.1",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "parcel": "^2.15.4"
