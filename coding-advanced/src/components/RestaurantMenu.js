@@ -1,53 +1,50 @@
 import { useParams } from "react-router";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import CaregoryItem from "./CategororyItem";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  console.log(resId);
 
-  // custom hook 
-  const menuInfo = useRestaurantMenu(resId)
+  // custom hook
+  const menuInfo = useRestaurantMenu(resId);
 
   if (menuInfo === null) return <ShimmerMenu />;
 
-  const { name, costForTwoMessage, cuisines, avgRating, sla } =
+  // console.log("menu info", menuInfo?.data?.cards[2]?.card?.card?.info);
+
+  const { name, cuisines, avgRating, costForTwoMessage } =
     menuInfo?.data?.cards[2]?.card?.card?.info;
 
-  const { itemCards } =
-    menuInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card;
+  const itemCards =
+    menuInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (category) =>
+        category.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
-  console.log(
-    "itemcards",
-    menuInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card
-  );
+  // console.log(itemCards);
+
+  // ?.cards[2]?.card?.card
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>{cuisines.join(",")}</p>
-      <p>{costForTwoMessage}</p>
-      <p>{avgRating}</p>
-      <p>{sla?.deliveryTime} min</p>
-
-      {/* menu list */}
-      <div>
-        <h2>Menu</h2>
-
-        {/* // TODO: MenuCard component  */}
-        <ul>
-          {itemCards &&
-            itemCards.map((item) => (
-              <li key={item?.card?.info?.id}>
-                {item?.card?.info.name} - Rs:
-                {item?.card?.info?.price / 100 ||
-                  item?.card?.info?.defaultPrice / 100}
-              </li>
-            ))}
-        </ul>
+    <section className="text-center w-6/12 mx-auto my-2">
+      {/* restaurant name rating and cusions section */}
+      <div className="shadow border-b-2">
+        <h1 className="font-bold text-lg m-2 p-2">{name}</h1>
+        <div className="flex items-center justify-center ">
+          <span className="m-0.5 p-0.5">⭐ {avgRating} </span>
+          <span className="m-0.5 p-0.5"> - {costForTwoMessage}</span>
+        </div>
+        <p className="text-amber-400">{cuisines.join(",")}</p>
       </div>
-    </div>
+
+      {/* show all the title section */}
+      <div>
+        {itemCards.map((item) => (
+          <CaregoryItem key={item.card.card.categoryId} data={item.card.card} />
+        ))}
+      </div>
+    </section>
   );
 };
 
