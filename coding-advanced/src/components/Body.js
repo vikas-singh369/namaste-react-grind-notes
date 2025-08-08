@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard, { IsvegReastaurant } from "./RestaurantCard";
+import RestaurantCard, { isVegReastaurant } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import localData from "../utils/swiggyData.json";
 import { Link } from "react-router";
@@ -7,8 +7,11 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [list, setList] = useState([]);
-  const [searchText, setSearchText] = useState("");
   const [filtervalue, setFiltervalue] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  const VegReastaurantCard = isVegReastaurant(RestaurantCard);
+
 
   const onlineStatus = useOnlineStatus();
 
@@ -41,9 +44,7 @@ const Body = () => {
     fetchData();
   }, []);
 
-
-  const VegRestaurantLabel = IsvegReastaurant(RestaurantCard);
-
+  // if user offline then { this data i get using my custom hook}
   if (!onlineStatus) {
     return (
       <div>
@@ -66,7 +67,7 @@ const Body = () => {
             onChange={(e) => setSearchText(e.target.value)}
           />{" "}
           <button
-          className="px-2 py-1 bg-amber-100 rounded-lg"
+            className="px-2 py-1 bg-amber-100 rounded-lg"
             onClick={() => {
               const filtervalue = list.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -78,7 +79,7 @@ const Body = () => {
           </button>
         </div>
         <button
-        className="px-2 py-1 bg-amber-100 rounded-lg"
+          className="px-2 py-1 bg-amber-100 rounded-lg"
           onClick={() => {
             const filterList = list.filter((res) => res.info.avgRating > 4.2);
             setFiltervalue(filterList);
@@ -95,12 +96,7 @@ const Body = () => {
             to={`/restaurant/${res?.info?.id}`}
             className="res-list"
           >
-            {
-             res?.info?.veg ? (
-                <VegRestaurantLabel resData = {res?.info} />
-              ) : (
-                <RestaurantCard resData={res?.info} />
-              )            }
+            {res?.info?.veg ? <VegReastaurantCard resData = {res?.info}  /> : <RestaurantCard resData={res?.info} />}
           </Link>
         ))}
       </div>

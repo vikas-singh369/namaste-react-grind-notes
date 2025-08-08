@@ -31,16 +31,16 @@ const RestaurantCard = ({ resData }) => {
 
 export default RestaurantCard;
 
-// Higher order component
-const IsvegReastaurant = (RestaurantCard) => {
-  return (props)=>{
-     return <div>
-      <label className="border-1 text-black">Veg</label>
-      <RestaurantCard {...props} />
-    </div>
-  }
-}
+// Higher order component {takes component and return the enhancement version or any feature using the input component and return another Component.}
 
-export {
-  IsvegReastaurant
+export const isVegReastaurant = (Restaurant)=>{
+  return (props)=>{
+
+    return(
+      <div className="relative">
+      <label className="absolute bg-[#080808] opacity-80 rounded-sm text-white px-2 py-0.5 left-4">Veg</label>
+      <RestaurantCard {...props} />
+      </div>
+    )
+  }
 }
