@@ -13,7 +13,7 @@ const Header = () => {
   // },[])
 
   return (
-    <div className=" bg-amber-600 flex justify-between items-center">
+    <div className=" bg-amber-200 flex justify-between items-center">
       <img className="w-30" src={LOGO_URL} />
 
         <ul className="flex items-center justify-center">

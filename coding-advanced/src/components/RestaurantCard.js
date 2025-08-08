@@ -30,3 +30,17 @@ const RestaurantCard = ({ resData }) => {
 };
 
 export default RestaurantCard;
+
+// Higher order component
+const IsvegReastaurant = (RestaurantCard) => {
+  return (props)=>{
+     return <div>
+      <label className="border-1 text-black">Veg</label>
+      <RestaurantCard {...props} />
+    </div>
+  }
+}
+
+export {
+  IsvegReastaurant
+}
