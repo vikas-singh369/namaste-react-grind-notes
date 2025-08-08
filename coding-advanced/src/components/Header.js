@@ -8,42 +8,37 @@ const Header = () => {
 
   const [btnName, setBtName] = useState("login");
 
-
   // useEffect(()=>{
   //   console.log("useEffect called")
   // },[])
 
   return (
-    <div className="header">
-      <div>
-        <img className="logo" src={LOGO_URL} />
-      </div>
+    <div className=" bg-amber-600 flex justify-between items-center">
+      <img className="w-30" src={LOGO_URL} />
 
-      <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex items-center justify-center">
+          <li className="m-4 p-4 font-bold">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="m-4 p-4 font-bold">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="m-4 p-4 font-bold">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
-          <Link to= "/login">
-          <button
-            className="btnName"
-            onClick={() => {
-              btnName === "login" ? setBtName("logout") : setBtName("login");
-            }}
-          >
-            {btnName}
-          </button>
+          <li className="m-4 p-4 font-bold">Cart</li>
+          <Link to="/login">
+            <button
+              className="m-4 p-4 font-bold"
+              onClick={() => {
+                btnName === "login" ? setBtName("logout") : setBtName("login");
+              }}
+            >
+              {btnName}
+            </button>
           </Link>
         </ul>
       </div>
-    </div>
   );
 };
 

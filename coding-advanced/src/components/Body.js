@@ -53,15 +53,17 @@ const Body = () => {
   return list.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body-container">
-      <div className="filter">
-        <div className="search">
+    <div className="">
+      <div className="flex items-center justify-center gap-5">
+        <div className="flex items-center justify-center">
           <input
             type="text"
+            className="m-1 p-1 border-1"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />{" "}
           <button
+          className="px-2 py-1 bg-amber-500 rounded-lg"
             onClick={() => {
               const filtervalue = list.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -73,6 +75,7 @@ const Body = () => {
           </button>
         </div>
         <button
+        className="px-2 py-1 bg-amber-500 rounded-lg"
           onClick={() => {
             const filterList = list.filter((res) => res.info.avgRating > 4.2);
             setFiltervalue(filterList);
@@ -82,7 +85,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap items-center justify-center">
         {filtervalue.map((res) => (
           <Link
             key={res?.info?.id}

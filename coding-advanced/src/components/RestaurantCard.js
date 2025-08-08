@@ -4,7 +4,7 @@ const RestaurantCard = ({ resData }) => {
     resData;
 
   return (
-    <article className="card">
+    <article className="m-4 p-4 border-1">
       <img
         className="card-img"
         alt={name ? `${name} image` : "Restaurant image"}
