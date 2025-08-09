@@ -57,7 +57,7 @@ const Body = () => {
   return list.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="">
+    <div className="bg-[#FFFFFF]">
       <div className="flex items-center justify-center gap-5">
         <div className="flex items-center justify-center">
           <input
