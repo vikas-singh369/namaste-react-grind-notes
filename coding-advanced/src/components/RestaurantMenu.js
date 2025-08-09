@@ -29,7 +29,7 @@ const RestaurantMenu = () => {
   return (
     <section className="text-center w-6/12 mx-auto my-2">
       {/* restaurant name rating and cusions section */}
-      <div className="shadow border-b-2">
+      <div className="shadow border-2 border-amber-200 bg-gray-900 text-white rounded-lg">
         <h1 className="font-bold text-lg m-2 p-2">{name}</h1>
         <div className="flex items-center justify-center ">
           <span className="m-0.5 p-0.5">⭐ {avgRating} </span>
@@ -39,7 +39,7 @@ const RestaurantMenu = () => {
       </div>
 
       {/* show all the title section */}
-      <div>
+      <div className="flex flex-col justify-center gap-2.5">
         {itemCards.map((item) => (
           <CaregoryItem key={item.card.card.categoryId} data={item.card.card} />
         ))}
