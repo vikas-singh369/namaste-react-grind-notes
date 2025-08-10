@@ -1,4 +1,4 @@
-import { useEffect, useState, } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { isVegReastaurant } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import localData from "../utils/swiggyData.json";
@@ -12,7 +12,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const VegReastaurantCard = isVegReastaurant(RestaurantCard);
-
 
   const onlineStatus = useOnlineStatus();
 
@@ -54,6 +53,9 @@ const Body = () => {
     );
   }
 
+
+  const {logedInUser, setUserName} = useContext(UserContext);
+
   // conditional rendering
   return list.length === 0 ? (
     <Shimmer />
@@ -88,9 +90,17 @@ const Body = () => {
         >
           top rated restaurant
         </button>
+
+        <div className="m-0.5 p-0.5">
+          <label>User-Name : </label>
+          <input className="px-2 py-1 border-1 border-black shadow-amber-200" placeholder="Change user-name"
+         value={logedInUser}
+          onChange={(e)=> setUserName(e.target.value)}>
+
+          </input>
+        </div>
       </div>
 
-<UserContext.Provider value={{logedInUser : "vikas jii"}}>
       <div className="flex flex-wrap items-center justify-center">
         {filtervalue.map((res) => (
           <Link
@@ -98,11 +108,14 @@ const Body = () => {
             to={`/restaurant/${res?.info?.id}`}
             className="res-list"
           >
-            {res?.info?.veg ? <VegReastaurantCard resData = {res?.info}  /> : <RestaurantCard resData={res?.info} />}
+            {res?.info?.veg ? (
+              <VegReastaurantCard resData={res?.info} />
+            ) : (
+              <RestaurantCard resData={res?.info} />
+            )}
           </Link>
         ))}
       </div>
-</UserContext.Provider>
     </div>
   );
 };
