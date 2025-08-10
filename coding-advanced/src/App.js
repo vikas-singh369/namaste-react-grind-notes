@@ -9,17 +9,32 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import { lazy, Suspense} from "react"
+import { lazy, Suspense, useContext, useEffect, useState} from "react"
+import UserContext from "./utils/UserContext";
+
 
 const About = lazy(()=> import("./components/About"));
 
 
 const AppLayout = () => {
+  const {logedInUser} = useContext(UserContext)
+  const [ userName, setUserName] = useState(logedInUser)
+
+  useEffect(()=>{
+  // any api call lets geuss
+  
+  const data = {
+    name: "Papa"
+  }
+  setUserName(data.name)
+},)
   return (
+    <UserContext.Provider value={{logedInUser: userName}}>
     <div className="app">
       <Header />
       <Outlet />
     </div>
+    </UserContext.Provider>
   );
 };
 

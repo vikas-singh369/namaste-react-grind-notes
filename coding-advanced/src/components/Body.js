@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import RestaurantCard, { isVegReastaurant } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import localData from "../utils/swiggyData.json";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [list, setList] = useState([]);
@@ -58,7 +59,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="bg-[#FFFFFF]">
-      <div className="flex items-center justify-center gap-5">
+      <div className="flex items-center justify-evenly w-6/12 mx-auto">
         <div className="flex items-center justify-center">
           <input
             type="text"
@@ -89,6 +90,7 @@ const Body = () => {
         </button>
       </div>
 
+<UserContext.Provider value={{logedInUser : "vikas jii"}}>
       <div className="flex flex-wrap items-center justify-center">
         {filtervalue.map((res) => (
           <Link
@@ -100,6 +102,7 @@ const Body = () => {
           </Link>
         ))}
       </div>
+</UserContext.Provider>
     </div>
   );
 };
