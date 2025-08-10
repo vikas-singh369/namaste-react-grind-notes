@@ -2,19 +2,24 @@ import { useParams } from "react-router";
 import ShimmerMenu from "./ShimmerMenu";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import CaregoryItem from "./CategororyItem";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
-  // custom hook
-  const menuInfo = useRestaurantMenu(resId);
+  // item show index
+  const [showIndex, setShowIndex] = useState(0);
 
+  // custom hook for fetch menu data
+  const menuInfo = useRestaurantMenu(resId);
   if (menuInfo === null) return <ShimmerMenu />;
 
-  // console.log("menu info", menuInfo?.data?.cards[2]?.card?.card?.info);
-
-  const { name, cuisines, avgRating, costForTwoMessage } =
-    menuInfo?.data?.cards[2]?.card?.card?.info;
+  const { 
+    name,
+    cuisines,
+    avgRating,
+    costForTwoMessage
+   } = menuInfo?.data?.cards[2]?.card?.card?.info;
 
   const itemCards =
     menuInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -23,9 +28,6 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  // console.log(itemCards);
-
-  // ?.cards[2]?.card?.card
   return (
     <section className="text-center w-6/12 mx-auto my-2">
       {/* restaurant name rating and cusions section */}
@@ -38,10 +40,15 @@ const RestaurantMenu = () => {
         <p className="text-amber-400">{cuisines.join(",")}</p>
       </div>
 
-      {/* show all the title section */}
+{/* Restaurant Category items */}
       <div className="flex flex-col justify-center gap-2.5">
-        {itemCards.map((item) => (
-          <CaregoryItem key={item.card.card.categoryId} data={item.card.card} />
+        {itemCards.map((item, index) => (
+          <CaregoryItem 
+          key={item?.card?.card?.categoryId} 
+          data={item?.card?.card} 
+          isOpenShowItem={index === showIndex}
+          setShowIndex ={()=> setShowIndex(prev=> prev===index ? null : index)}
+        />
         ))}
       </div>
     </section>

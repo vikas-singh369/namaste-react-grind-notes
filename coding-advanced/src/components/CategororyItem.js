@@ -1,12 +1,12 @@
-import { useState } from "react";
 import ItemList from "./ItemList";
 
-const CaregoryItem = ({ data }) => {
-  const[isOpen, setIsOpen] = useState(false)
+const CaregoryItem = ({ data, isOpenShowItem, setShowIndex }) => {
+  // const[isOpen, setIsOpen] = useState(false)
   // console.log("Category data", data);
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    console.log(isOpenShowItem)
+     setShowIndex();
   };
 
   return (
@@ -19,11 +19,11 @@ const CaregoryItem = ({ data }) => {
           <h2 className="font-semibold  text-lg ">
             {data.title} - {data.itemCards.length}
           </h2>
-          <span className="m-0.5 p-0.5">{isOpen ? "⬇️" : "⬆️"}</span>
+          <span className="m-0.5 p-0.5">{isOpenShowItem  ? "⬇️" : "⬆️"}</span>
         </div>
 
         {/* don't render like this change it  */}
-          { isOpen && <ItemList itemDataList={data.itemCards} />}
+          { isOpenShowItem  && <ItemList itemDataList={data.itemCards} />}
       </div>
     </>
   );

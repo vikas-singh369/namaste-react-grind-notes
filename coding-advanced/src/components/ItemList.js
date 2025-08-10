@@ -1,6 +1,6 @@
 import { IMAGE_ASSEST_CDN_URL } from "../utils/constant"
 const ItemList = ({ itemDataList }) => {
-  console.log(itemDataList);
+  // console.log(itemDataList);
   return (
     <div className="flex flex-col justify-center gap-3">
       {itemDataList.map((item) => {
