@@ -30,7 +30,7 @@ const RestaurantMenu = () => {
     <section className="text-center w-6/12 mx-auto my-2">
       {/* restaurant name rating and cusions section */}
       <div className="shadow border-2 border-amber-200 bg-gray-900 text-white rounded-lg">
-        <h1 className="font-bold text-lg m-2 p-2">{name}</h1>
+        <h1 className="font-bold text-2xl m-2 p-2">{name}</h1>
         <div className="flex items-center justify-center ">
           <span className="m-0.5 p-0.5">⭐ {avgRating} </span>
           <span className="m-0.5 p-0.5"> - {costForTwoMessage}</span>
