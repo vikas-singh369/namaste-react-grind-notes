@@ -16,6 +16,7 @@ const About = lazy(() => import("./components/About"));
 
 import {Provider} from "react-redux"
 import appStore from "./redux/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   const { logedInUser } = useContext(UserContext);
@@ -68,13 +69,17 @@ const appRouter = createBrowserRouter([
         element: <RestaurantMenu />,
       },
       {
-        path: "login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "sign-up",
+        path: "/sign-up",
         element: <SignUp />,
       },
+      {
+        path: "/cart",
+        element: <Cart />
+      }
     ],
     errorElement: <Error />,
   },

@@ -8,6 +8,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action)=>{
+      // logic don't duplicate increase the count only 
       state.items.push(action.payload);
     },
 

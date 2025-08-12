@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { IMAGE_ASSEST_CDN_URL } from "../utils/constant"
-import { addItem } from "../redux/Slices/cartSlice";
+import { addItem } from "../redux/slices/cartSlice";
 
 
 
