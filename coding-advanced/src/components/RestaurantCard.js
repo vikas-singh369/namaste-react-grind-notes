@@ -1,11 +1,12 @@
 import { IMAGE_ASSEST_CDN_URL } from "../utils/constant";
-import React, { useContext } from "react";
-import UserContext from "../utils/UserContext";
+// import React, { useContext } from "react";
+// import UserContext from "../utils/UserContext";
 const RestaurantCard = ({ resData }) => {
   const { name, avgRating, cuisines, costForTwo, sla, cloudinaryImageId } =
     resData;
 
-const {logedInUser } = useContext(UserContext)
+// const {logedInUser } = useContext(UserContext)
+
   return (
     <article className="m-4 p-4 border-1">
       <img
@@ -27,9 +28,9 @@ const {logedInUser } = useContext(UserContext)
         <p>
           <strong>Cuisines:</strong> {cuisines?.join(", ")}
         </p>
-        <p>
+        {/* <p>
           <strong>User:</strong> {logedInUser}
-        </p>
+        </p> */}
       </section>
     </article>
   );

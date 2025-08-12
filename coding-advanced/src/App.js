@@ -9,33 +9,36 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import { lazy, Suspense, useContext, useEffect, useState} from "react"
+import { lazy, Suspense, useContext, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
 
+const About = lazy(() => import("./components/About"));
 
-const About = lazy(()=> import("./components/About"));
-
+import {Provider} from "react-redux"
+import appStore from "./redux/appStore";
 
 const AppLayout = () => {
-  const {logedInUser} = useContext(UserContext)
-  const [ userName, setUserName] = useState(logedInUser)
+  const { logedInUser } = useContext(UserContext);
+  const [userName, setUserName] = useState(logedInUser);
 
-  useEffect(()=>{
-  // any api call lets geuss
-  
-  const data = {
-    name: "Papa"
-  }
-  setUserName(data.name)
-},[])
+  useEffect(() => {
+    // any api call lets geuss
+
+    const data = {
+      name: "Papa",
+    };
+    setUserName(data.name);
+  }, []);
 
   return (
-    <UserContext.Provider value={{logedInUser: userName, setUserName}}>
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+    <UserContext.Provider value={{ logedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -46,36 +49,36 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/about",
-        element: <Suspense fallback = {
-          <h1>Loading...</h1>
-        }>
-          <About />
-        </Suspense>
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />
+        element: <RestaurantMenu />,
       },
       {
         path: "login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "sign-up",
-        element: <SignUp />
-      }
+        element: <SignUp />,
+      },
     ],
-    errorElement: <Error />
-  }
-])
+    errorElement: <Error />,
+  },
+]);
 
 // new way to write this  v^6 +
 const appRouter2 = createBrowserRouter([
@@ -85,32 +88,32 @@ const appRouter2 = createBrowserRouter([
     children: [
       {
         index: true, // parent element
-        Component:Body 
+        Component: Body,
       },
       {
         path: "/about",
-        Component:About 
+        Component: About,
       },
       {
         path: "/contact",
-        Component: Contact
+        Component: Contact,
       },
       {
         path: "/restaurant/:resId",
-        Component:RestaurantMenu
+        Component: RestaurantMenu,
       },
       {
         path: "login",
-        Component: Login
+        Component: Login,
       },
       {
         path: "sign-up",
-        Component: SignUp
-      }
+        Component: SignUp,
+      },
     ],
-    errorElement: <Error />
-  }
-])
+    errorElement: <Error />,
+  },
+]);
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 

@@ -1,6 +1,19 @@
+import { useDispatch } from "react-redux";
 import { IMAGE_ASSEST_CDN_URL } from "../utils/constant"
+import { addItem } from "../redux/Slices/cartSlice";
+
+
+
+
 const ItemList = ({ itemDataList }) => {
-  // console.log(itemDataList);
+  
+  const dispatch = useDispatch();
+
+  
+const addToCartItem = (item)=>{
+  dispatch(addItem(item))
+}
+
   return (
     <div className="flex flex-col justify-center gap-3">
       {itemDataList.map((item) => {
@@ -29,6 +42,13 @@ const ItemList = ({ itemDataList }) => {
                 />
               </div>
             )}
+
+            <div>
+              <button className="px-2 py-1 bg-amber-200 rounded-lg text-black"
+               onClick={() => addToCartItem(item)}>
+                Add
+              </button>
+            </div>
           </div>
         );
       })}

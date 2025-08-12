@@ -5,25 +5,25 @@ const CaregoryItem = ({ data, isOpenShowItem, setShowIndex }) => {
   // console.log("Category data", data);
 
   const handleClick = () => {
-    console.log(isOpenShowItem)
-     setShowIndex();
+    console.log(isOpenShowItem);
+    setShowIndex();
   };
 
   return (
     <>
-      <div
-        className="shadow-lg border-b-amber-200 m-2 p-2 rounded-b-lg cursor-pointer"
-        onClick={handleClick}
-      >
-        <div className="flex items-center justify-between">
+      <div className="shadow-lg border-b-amber-200 m-2 p-2 rounded-b-lg cursor-pointer">
+        <div
+          className="flex items-center justify-between"
+          onClick={handleClick}
+        >
           <h2 className="font-semibold  text-lg ">
             {data.title} - {data.itemCards.length}
           </h2>
-          <span className="m-0.5 p-0.5">{isOpenShowItem  ? "⬇️" : "⬆️"}</span>
+          <span className="m-0.5 p-0.5">{isOpenShowItem ? "⬇️" : "⬆️"}</span>
         </div>
 
         {/* don't render like this change it  */}
-          { isOpenShowItem  && <ItemList itemDataList={data.itemCards} />}
+        {isOpenShowItem && <ItemList itemDataList={data.itemCards} />}
       </div>
     </>
   );
