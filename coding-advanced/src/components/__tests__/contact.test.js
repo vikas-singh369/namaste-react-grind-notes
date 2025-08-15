@@ -10,10 +10,22 @@ test("haa bhai contact page", ()=>{
   expect(contactText).toBeInTheDocument();
 })
 
-test("haa bhai button dund raha hnn  page me", ()=>{
+
+
+describe("group multiple test case", ()=>{
+  it("haa bhai button dund raha hnn  page me", ()=>{
   render(<Contact />)
 
   const paragraph = screen.getByRole("paragraph")
 
   expect(paragraph).toBeInTheDocument();
+})
+
+it("Sab heading ko dundte hai ", ()=>{
+  render(<Contact />)
+
+  const heading = screen.getAllByRole("heading")
+
+  expect(heading.length).toBeTruthy()
+})
 })
