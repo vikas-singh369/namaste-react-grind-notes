@@ -44,6 +44,7 @@ const RestaurantMenu = () => {
       <div className="flex flex-col justify-center gap-2.5">
         {itemCards.map((item, index) => (
           <CaregoryItem 
+          data-testid = "category-items"
           key={item?.card?.card?.categoryId} 
           data={item?.card?.card} 
           isOpenShowItem={index === showIndex}

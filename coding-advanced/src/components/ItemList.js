@@ -22,7 +22,7 @@ const addToCartItem = (item)=>{
         const finalPrice = (price || defaultPrice) / 100;
 
         return (
-          <div key={id} className="flex border-b-2 border-amber-200 py-2">
+          <div data-testid = "menu-items" key={id} className="flex border-b-2 border-amber-200 py-2">
             <div className={`${imageId ? "w-full" : "w-9/12"} text-left`}>
               <div className="flex items-center flex-wrap">
                 <h3 className="m-0.5 p-0.5 font-semibold">{name}</h3>

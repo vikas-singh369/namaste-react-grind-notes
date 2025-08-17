@@ -13,6 +13,7 @@ const CaregoryItem = ({ data, isOpenShowItem, setShowIndex }) => {
     <>
       <div className="shadow-lg border-b-amber-200 m-2 p-2 rounded-b-lg cursor-pointer">
         <div
+        data-testid = "Category-title-list"
           className="flex items-center justify-between"
           onClick={handleClick}
         >
