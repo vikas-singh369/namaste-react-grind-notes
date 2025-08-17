@@ -26,7 +26,7 @@ const Body = () => {
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
-      console.log("restaurant", restaurants);
+      // console.log("restaurant", restaurants);
       setList(restaurants);
       setFiltervalue(restaurants);
     } catch (error) {
