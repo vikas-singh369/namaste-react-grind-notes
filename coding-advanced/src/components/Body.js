@@ -65,6 +65,7 @@ const Body = () => {
         <div className="flex items-center justify-center">
           <input
             type="text"
+            data-testid = "serach-btn"
             className="m-1 p-1 border-1"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -107,6 +108,7 @@ const Body = () => {
             key={res?.info?.id}
             to={`/restaurant/${res?.info?.id}`}
             className="res-list"
+            data-testid="card-items"
           >
             {res?.info?.veg ? (
               <VegReastaurantCard resData={res?.info} />
