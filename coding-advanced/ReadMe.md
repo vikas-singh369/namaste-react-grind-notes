@@ -41,4 +41,14 @@ This repository is structured into multiple folders, each focusing on a specific
 
 
 
+
+
+### 🔹 [13-Time For Test](./src/components/__tests__/)
+- Setup React Testing Library [in-details](./testingSetup.md)
+- Write Unit Tests for Header Component to test for Logo, Cart - 0 items and
+Online Status
+- Write Integration Test case for search feature on the Homepage
+- Write Integration Test case for Add to Cart flow
+
+
 > *(Coming soon...)*

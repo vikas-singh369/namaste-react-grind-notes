@@ -16,7 +16,7 @@ global.fetch = jest.fn(() => {
   });
 });
 
-it("should render the serch btn features", async () => {
+it("should render the search btn features", async () => {
   await act(async () =>
     render(
       <BrowserRouter>
