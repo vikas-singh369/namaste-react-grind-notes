@@ -25,6 +25,8 @@ All coding practice and implementations are organized as follows:
 ### 🔯 [9-Optimize Our App](./9-optimize-our-app/)
 ### 🔯 [10-Jo Dikhta Hai Wo Bikta Hai](./10-jo-dikhta-hai-wo-bikta-hai/)
 ### 🔯 [11-Data Is The New Oil](./11-data-is-new-oil/)
+### 🔯 [12-Build Our Store](./12-build-our-store/)
+### 🔯 [13-Time for Test](./13-time-for-test/)
 
 ---
 Created & Maintained by [Vikas Singh](https://github.com/vikas-singh369)  
