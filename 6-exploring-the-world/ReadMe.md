@@ -74,3 +74,19 @@ if suppose traffic increses and payment transication increases then we scale the
 - High infrastructure cost compared to monolith for small apps.
 
 
+## 3. What is the difference between Monolith and Microservice?
+
+### Monolith vs Microservices
+
+ | Feature | Monolith | microservices |
+ |---------|----------|---------------|
+ |**Architecture/Structure**| One big unified application | Applicatin divided into small services |
+ |**Deployment**| Deployed as a single unit | Each service deployed indenpendently |
+ |**Scalibility**| Entire app must be scaled | Each service independently scale |
+ |**Technology**| usually one tech stack | different service can use different tech stack |
+ |**Failure Impact**| one bug can crash entire app | bug can one service doesn't affect other service |
+ | **Best Use Case**  | Small, simple apps (MVPs, startups)    | Large, complex apps (Amazon, Netflix) |
+
+
+
+
