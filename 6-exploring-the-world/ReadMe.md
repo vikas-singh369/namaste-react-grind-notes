@@ -159,3 +159,21 @@ An **expression** is code that evaluates to value ex `5+3` `x=30`.It can be valu
 
 **Statement:** is a complete instruction that perform action Example : `if`, `for`, `return`.
 expression can a part of statement but statement don't always produce value.
+
+
+## 8. What is Conditional Rendering, explain with a code example 
+
+Conditional rendering means showing different UI based on the certain conditions. 
+
+For Ex: If user logged in , show the dashboarde otherwise show login page.
+
+this Example using js Expression
+```
+let isLoggedIn = false;
+
+let page = isLoggedIn ? "Show Dashboard" : "Show Login Page";
+
+console.log(page);
+```
+
+## 9. 
