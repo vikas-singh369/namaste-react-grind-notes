@@ -7,11 +7,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtName] = useState("login");
-
   const cartItems = useSelector((store) => store.cart.items);
-
   const { logedInUser } = useContext(UserContext);
-
   const onlineStatus = useOnlineStatus();
 
   return (
@@ -19,34 +16,22 @@ const Header = () => {
       <img data-testid="logo" className="w-30" src={LOGO_URL} />
 
       <ul className="flex items-center justify-center">
-        <li className="m-4 p-4 font-bold">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="m-4 p-4 font-bold">
-          <Link to="/about">About Us</Link>
-        </li>
-        <li className="m-4 p-4 font-bold">
-          <Link to="/contact">Contact Us</Link>
-        </li>
-        <li className="m-4 p-4 font-bold">
-          <Link to="/cart">Cart - {cartItems.length}</Link>
-        </li>
+        <li className="px-2.5 font-bold"><Link to="/">Home</Link></li>
+        <li className="px-2.5 font-bold"><Link to="/about">About Us</Link></li>
+        <li className="px-2.5 font-bold"><Link to="/contact">Contact Us</Link></li>
+        <li className="px-2.5 font-bold"><Link to="/cart">Cart - {cartItems.length}</Link></li>
 
-        <Link to="/login">
+        <li><Link to="/login" className="px-2.5 font-bold">
           <button
-            className="m-4 p-4 font-bold"
             onClick={() => {
               btnName === "login" ? setBtName("logout") : setBtName("login");
             }}
           >
             {btnName}
           </button>
-        </Link>
-
-        <li className="m-4 p-4 font-bold">
-          {" "}
-          <span>{onlineStatus ? "🟢" : "🔴"}</span> {logedInUser}
+          </Link>
         </li>
+        <li className="px-2.5 font-bold"><span>{onlineStatus ? "🟢" : "🔴"}</span> {logedInUser}</li>
       </ul>
     </div>
   );
