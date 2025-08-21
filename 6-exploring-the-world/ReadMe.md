@@ -88,5 +88,35 @@ if suppose traffic increses and payment transication increases then we scale the
  | **Best Use Case**  | Small, simple apps (MVPs, startups)    | Large, complex apps (Amazon, Netflix) |
 
 
+ ## 4. Why do we need a useEffect Hook?
+
+ We need `useEffect()` hook to handel `side effects` in functional components.
+
+ **Side Effects:** like anything that affects outside's the scope of the functions return value. such as 
+
+ - Feteching data from an API.
+ - working with `setTimeOut()` and `setInterval()`.
+ - updating DOM manually.
+ - Setting up the `subscriptions` and `event-listener`.
+
+ **Why useEffect()** because Functional componets is a pure function that only return UI, not perform  the side effects directly.
+
+ - Before Hooks side effect only possiable in class components using `react life cycle methods` like `componentDidMount()`, `componentDidUpdate()` and `componentWillUnmount()`.
+
+ with useEffect we perform side effects in functional components.
 
 
+ ```
+   useEffect(()=>{
+    window.addEventListener("offline", handleOffline);
+    window.addEventListener("online", handleOnline);
+
+    return ()=>{
+      window.removeEventListener("offline" , handleOffline);
+      window.removeEventListener("online", handleOnline);
+    }
+  },[]);
+ ```
+
+
+ ## 5. 
