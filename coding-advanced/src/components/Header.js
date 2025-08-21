@@ -10,21 +10,15 @@ const Header = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
 
-  // console.log(cartItems);
-  
   const { logedInUser } = useContext(UserContext);
 
-  const onlineStatus = useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
 
   return (
     <div className=" bg-amber-200/70 flex justify-between items-center">
-      <img data-testid = "logo" className="w-30" src={LOGO_URL} />
+      <img data-testid="logo" className="w-30" src={LOGO_URL} />
 
       <ul className="flex items-center justify-center">
-
-        <li className="m-4 p-4 font-bold">
-          <Link to="/">{onlineStatus ? "Online": "Ofline"}</Link>
-        </li>
         <li className="m-4 p-4 font-bold">
           <Link to="/">Home</Link>
         </li>
@@ -34,7 +28,7 @@ const Header = () => {
         <li className="m-4 p-4 font-bold">
           <Link to="/contact">Contact Us</Link>
         </li>
-        <li className="m-4 p-4 font-bold"> 
+        <li className="m-4 p-4 font-bold">
           <Link to="/cart">Cart - {cartItems.length}</Link>
         </li>
 
@@ -49,7 +43,10 @@ const Header = () => {
           </button>
         </Link>
 
-        <li className="m-4 p-4 font-bold">{logedInUser}</li>
+        <li className="m-4 p-4 font-bold">
+          {" "}
+          <span>{onlineStatus ? "🟢" : "🔴"}</span> {logedInUser}
+        </li>
       </ul>
     </div>
   );

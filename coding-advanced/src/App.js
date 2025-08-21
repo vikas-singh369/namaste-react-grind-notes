@@ -26,7 +26,7 @@ const AppLayout = () => {
     // any api call lets geuss
 
     const data = {
-      name: "Papa",
+      name: "Vikas",
     };
     setUserName(data.name);
   }, []);
