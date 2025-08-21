@@ -119,4 +119,30 @@ if suppose traffic increses and payment transication increases then we scale the
  ```
 
 
- ## 5. 
+ ## 5. What is Optional Chaining?
+Optional Chaining is a javascript features used to **safely access the nested object properties** without worrying about the error ( if error )
+
+```
+const user = {
+  name: "Vikas",
+  address: {
+    city: "bilaspur"
+  }
+};
+
+
+console.log(user.address.city);   // "bilaspur"
+console.log(user.address.pincode); // undefined
+
+console.log(user.contact.email); // Error : not defined
+```
+
+**Using Optional Chaining**
+
+```
+console.log(user?.address?.city);   // "bilaspur"
+console.log(user?.address?.pincode); // undefined
+
+console.log(user?.contact?.email); // undefined
+```
+
