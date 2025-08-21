@@ -177,3 +177,26 @@ console.log(page);
 ```
 
 ## 9. 
+
+
+## 10. What is async and await?
+async await is a syntactic sugar over promises its morden approach to handle promises with easier and more readable way and avoid `callback hell` or deeply chained `.then()` calls.
+
+**async:** When we declare function with `async` it always return promise even if we return a simple value.
+
+**await** : await we used inside a `async` function to pause the execution until the promise is resolved or rejected.
+
+This helps asynchronous code in synchronous style, easier to raed and maintain.
+
+
+```
+async function fetchData() {
+  try {
+    const response = await fetch("foodApi.com/restaurant");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
