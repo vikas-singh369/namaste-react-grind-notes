@@ -146,3 +146,6 @@ console.log(user?.address?.pincode); // undefined
 console.log(user?.contact?.email); // undefined
 ```
 
+## 6. What is Shimmer UI?
+Shimmer UI is a **Loading placeholder technique** that show `shimmering` animation. Instant of showing black screen , white screen or spinner while real data being fetched its a good way to show real data **skeleton like structure**.
+
