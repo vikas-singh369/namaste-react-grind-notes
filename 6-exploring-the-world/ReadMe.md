@@ -149,3 +149,13 @@ console.log(user?.contact?.email); // undefined
 ## 6. What is Shimmer UI?
 Shimmer UI is a **Loading placeholder technique** that show `shimmering` animation. Instant of showing black screen , white screen or spinner while real data being fetched its a good way to show real data **skeleton like structure**.
 
+
+## 7. What is the difference between JS expression and JS statement ?
+
+An **expression** is code that evaluates to value ex `5+3` `x=30`.It can be value, variable , function call or a combination of operators.
+
+`a && b` or `a || b`.
+
+
+**Statement:** is a complete instruction that perform action Example : `if`, `for`, `return`.
+expression can a part of statement but statement don't always produce value.
