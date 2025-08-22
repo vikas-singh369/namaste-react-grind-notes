@@ -17,7 +17,7 @@ const RestaurantCard = ({ resData }) => {
           ⭐ {avgRating} - 🛵 {sla?.deliveryTime} min
         </p>
         <p className="text-sm">Cost for Two: {costForTwo}</p>
-        <p className="text-sm text-amber-500 line-clamp-1">
+        <p className="text-sm text-amber-600 line-clamp-1">
           Cuisines - {cuisines?.join(", ")}
         </p>
       </section>
@@ -33,7 +33,7 @@ export const isVegReastaurant = (Restaurant) => {
   return (props) => {
     return (
       <div className="relative">
-        <label className="absolute bg-[#080808] opacity-80 rounded-sm text-white px-2 py-0.5 left-4">
+        <label className="absolute bg-[#080808] text-white px-2 top-[1px] left-[1.6px] rounded-sm rounded-tl-xl opacity-85">
           Veg
         </label>
         <RestaurantCard {...props} />
