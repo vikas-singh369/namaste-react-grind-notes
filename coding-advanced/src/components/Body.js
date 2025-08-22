@@ -35,15 +35,15 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="bg-[#FFFFFF]">
-      <div className="flex items-center justify-evenly w-6/12 mx-auto">
-        <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center space-x-6 m-4">
+        <div className="flex items-center justify-center gap-x-3">
           <input
             type="text"
             data-testid = "serach-btn"
-            className="m-1 p-1 border-1"
+            className="px-2 py-1 border-1"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-          />{" "}
+          />
           <button
             className="px-2 py-1 bg-amber-100 rounded-lg"
             onClick={() => {
@@ -56,6 +56,7 @@ const Body = () => {
             search
           </button>
         </div>
+
         <button
           className="px-2 py-1 bg-amber-100 rounded-lg"
           onClick={() => {
@@ -66,17 +67,16 @@ const Body = () => {
           top rated restaurant
         </button>
 
-        <div className="m-0.5 p-0.5">
+        <div className="space-x-2">
           <label>User-Name : </label>
-          <input className="px-2 py-1 border-1 border-black shadow-amber-200" placeholder="Change user-name"
+          <input className="px-2 py-1 border-1 shadow-amber-200" placeholder="Change user-name"
          value={logedInUser}
-          onChange={(e)=> setUserName(e.target.value)}>
-
-          </input>
+          onChange={(e)=> setUserName(e.target.value)} />
         </div>
+
       </div>
 
-      <div className="flex flex-wrap items-center justify-center">
+      <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
         {filtervalue.map((res) => (
           <Link
             key={res?.info?.id}
