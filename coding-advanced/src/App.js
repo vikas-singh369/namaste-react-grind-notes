@@ -17,6 +17,7 @@ const About = lazy(() => import("./components/About"));
 import {Provider} from "react-redux"
 import appStore from "./redux/appStore";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   const { logedInUser } = useContext(UserContext);
@@ -37,6 +38,7 @@ const AppLayout = () => {
       <div className="bg-amber-50">
         <Header />
         <Outlet />
+        <Footer />
       </div>
     </UserContext.Provider>
     </Provider>
