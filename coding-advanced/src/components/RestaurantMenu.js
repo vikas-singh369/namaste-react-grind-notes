@@ -12,6 +12,7 @@ const RestaurantMenu = () => {
 
   // custom hook for fetch menu data
   const menuInfo = useRestaurantMenu(resId);
+  
   if (menuInfo === null) return <ShimmerMenu />;
 
   const { 

@@ -1,54 +1,28 @@
-import { useContext, useEffect, useState } from "react";
-import RestaurantCard, { isVegReastaurant } from "./RestaurantCard";
-import Shimmer from "./Shimmer";
-import localData from "../utils/swiggyData.json";
+import { useContext, useState } from "react";
 import { Link } from "react-router";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import Shimmer from "./Shimmer";
+import RestaurantCard, { isVegReastaurant } from "./RestaurantCard";
 import UserContext from "../utils/UserContext";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantData from "../utils/useRestaurantData"
 
 const Body = () => {
-  const [list, setList] = useState([]);
-  const [filtervalue, setFiltervalue] = useState([]);
+  const {
+    list,
+    setList,
+    filtervalue,
+    setFiltervalue
+  } = useRestaurantData();
+
   const [searchText, setSearchText] = useState("");
-
   const VegReastaurantCard = isVegReastaurant(RestaurantCard);
-
   const onlineStatus = useOnlineStatus();
-
-  const fetchData = async () => {
-    try {
-      const fetchResData = await fetch(
-        "https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING"
-      );
-
-      const json = await fetchResData.json();
-      const restaurants =
-        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      // console.log("restaurant", restaurants);
-      setList(restaurants);
-      setFiltervalue(restaurants);
-    } catch (error) {
-      console.warn("API failed, using local JSON data instead");
-      if (onlineStatus) {
-        const fallbackRestaurants =
-          localData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants;
-        setList(fallbackRestaurants);
-        setFiltervalue(fallbackRestaurants);
-      }
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   // if user offline then { this data i get using my custom hook}
   if (!onlineStatus) {
     return (
-      <div>
-        <h1>Tu offline chala gya bhai thoda check kar network kya huwa</h1>
+      <div className="text-center">
+        <h1 className="3xl underline">Tu offline chala gya bhai thoda check kar network kya huwa</h1>
       </div>
     );
   }
