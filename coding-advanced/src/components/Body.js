@@ -21,8 +21,8 @@ const Body = () => {
   // if user offline then { this data i get using my custom hook}
   if (!onlineStatus) {
     return (
-      <div className="text-center">
-        <h1 className="3xl underline">Tu offline chala gya bhai thoda check kar network kya huwa</h1>
+      <div className="text-center py-4 my-4">
+        <h1 className="text-3xl text-amber-400">Tu offline chala gya bhai thoda check kar network kya huwa</h1>
       </div>
     );
   }
