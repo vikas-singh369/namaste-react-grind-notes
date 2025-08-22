@@ -1,18 +1,13 @@
 import { useDispatch } from "react-redux";
-import { IMAGE_ASSEST_CDN_URL } from "../utils/constant"
+import { IMAGE_ASSEST_CDN_URL } from "../utils/constant";
 import { addItem } from "../redux/slices/cartSlice";
 
-
-
-
 const ItemList = ({ itemDataList }) => {
-  
   const dispatch = useDispatch();
 
-  
-const addToCartItem = (item)=>{
-  dispatch(addItem(item))
-}
+  const addToCartItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return (
     <div className="flex flex-col justify-center gap-3">
@@ -22,7 +17,11 @@ const addToCartItem = (item)=>{
         const finalPrice = (price || defaultPrice) / 100;
 
         return (
-          <div data-testid = "menu-items" key={id} className="flex border-b-2 border-amber-200 py-2">
+          <div
+            data-testid="menu-items"
+            key={id}
+            className="flex border-b-2 border-amber-200 py-2"
+          >
             <div className={`${imageId ? "w-full" : "w-9/12"} text-left`}>
               <div className="flex items-center flex-wrap">
                 <h3 className="m-0.5 p-0.5 font-semibold">{name}</h3>
@@ -33,19 +32,19 @@ const addToCartItem = (item)=>{
               )}
             </div>
 
-            {imageId && (
-              <div className="w-3/12 rounded-lg m-0.5 p-0.5 shadow-lg">
+            <div className=" w-3/12 rounded-lg m-0.5 p-0.5 shadow-lg">
+              {imageId && (
                 <img
                   src={`${IMAGE_ASSEST_CDN_URL}${imageId}`}
                   alt={name}
                   className="object-contain rounded-lg"
                 />
-              </div>
-            )}
+              )}
 
-            <div>
-              <button className="px-2 py-1 bg-amber-200 rounded-lg text-black"
-               onClick={() => addToCartItem(item)}>
+              <button
+                className=" bg-amber-500/95 hover:bg-amber-600/95 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
+                onClick={() => addToCartItem(item)}
+              >
                 Add
               </button>
             </div>
