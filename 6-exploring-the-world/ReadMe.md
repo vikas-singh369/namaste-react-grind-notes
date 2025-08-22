@@ -176,7 +176,10 @@ let page = isLoggedIn ? "Show Dashboard" : "Show Login Page";
 console.log(page);
 ```
 
-## 9. 
+## 9. What is CORS?
+CORS stand for cross-origin resorce sharing.
+
+It is a browser security mechanism using additional  HTTP headers to to allow restrict resource sharing between different app origin.
 
 
 ## 10. What is async and await?
@@ -200,3 +203,10 @@ async function fetchData() {
   }
 }
 ```
+
+
+## 11. What is the use of `const json = await data.json();` in getRestaurants()
+
+`const json = await data.json();` is used to convert the **raw HTTP Response** into a usable object so we directly work on it.
+
+It takes time to parsing raw response to usable object that's why we pause the execution and use `await`.
