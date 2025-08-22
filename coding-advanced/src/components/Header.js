@@ -12,7 +12,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className=" bg-amber-200/70 flex justify-between items-center">
+    <header className=" bg-amber-600/75 flex justify-between items-center">
       <img data-testid="logo" className="w-30" src={LOGO_URL} />
 
       <ul className="flex items-center justify-center">
@@ -33,7 +33,7 @@ const Header = () => {
         </li>
         <li className="px-2.5 font-bold"><span>{onlineStatus ? "🟢" : "🔴"}</span> {logedInUser}</li>
       </ul>
-    </div>
+    </header>
   );
 };
 
