@@ -1,8 +1,6 @@
 # let's Get classy 
 
-
-## How do you create Nested Routes react-router-dom cofiguration ? 
-
+## 1 How do you create Nested Routes react-router-dom cofiguration ? 
 There are two common ways to create nested `Routes` in Apps using `react-routes`
 
 ### 1. Traditional way { JSX based approach }
@@ -67,4 +65,47 @@ const appRouter = createBrowserRouter([
 In Both ways using `<Outlet />` to the parent component to render based on the click and route child component.
 
 
-## Read abt createHashRouter, createMemoryRouter from React Router docs.
+## 2 Read abt createHashRouter, createMemoryRouter from React Router docs.
+
+`createHashRouter` and `createMemoryRouter` are morden alternatives for traditional ( older ) `HashRouter` and `MemoryRouter`.
+
+
+**`createHashRouter`**
+used when app is hosted on static file servers like Github pages that don't support server-side-routing.
+
+- Everything after `#` is handled by React Router.
+- URLs look like: `https://vikassingh.in/#/about`.
+- No server configurations needed.
+
+**use cases:** 
+
+- Developing any static host like netlify, github pages.
+
+- Avoiding 404s on page refresh.
+
+```
+import { createHashRouter, RouterProvider } from 'react-router-dom';
+
+const router = createHashRouter([
+  { path: "/", element: <App /> },
+  { path: "about", element: <About /> }
+]);
+
+```
+- SEO: Less SEO-friendly due to hash-based URLs.
+
+**`createMemoryRouter`** 
+used for testing or non-browser envirnonments. it stores the history in memory, not in the URL bar.
+
+
+- No interaction with real browser address bar.
+- navigation is tracked internally.
+- ideal for unit tests or embedded apps.
+
+**use cases:** 
+- Component testing e.g. Jest or React testing library.
+
+- simulating navigation without affecting the browser.
+- React native or electron apps.
+
+
