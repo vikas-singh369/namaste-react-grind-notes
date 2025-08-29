@@ -18,7 +18,7 @@ const Cart = ()=>{
         <h1 className="m-2 p-2 font-bold text-xl">Cart</h1>
         <button 
         onClick={handleClearCart}
-        className="px-2 py-1 rounded-xl bg-amber-200 text-black"
+        className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
         >Clear-Cart</button>
       </div>
       

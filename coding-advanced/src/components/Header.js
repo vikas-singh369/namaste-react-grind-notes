@@ -12,18 +12,12 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <header className=" bg-amber-500/70 flex justify-between items-center">
+    <header className=" bg-amber-400/30 flex justify-between items-center">
       <img data-testid="logo" className="w-30" src={LOGO_URL} />
 
       <ul className="flex items-center justify-center">
         <li className=" font-bold p-2.5 hover:bg-amber-500/95 rounded-lg ">
           <Link to="/">Home</Link>
-        </li>
-        <li className="font-bold p-2.5 hover:bg-amber-500/95 rounded-lg">
-          <Link to="/about">About</Link>
-        </li>
-        <li className="font-bold p-2.5 hover:bg-amber-500/95 rounded-lg">
-          <Link to="/contact">Contact</Link>
         </li>
         <li className="font-bold p-2.5 hover:bg-amber-500/95 rounded-lg">
           <Link to="/cart">🛒 - {cartItems.length}</Link>

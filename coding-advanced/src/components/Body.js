@@ -41,7 +41,7 @@ const Body = () => {
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
-            className="bg-amber-500/95 hover:bg-amber-600/95 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
+            className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
             onClick={() => {
               const filtervalue = list.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -54,7 +54,7 @@ const Body = () => {
         </div>
 
         <button
-          className="bg-amber-500/95 hover:bg-amber-600/95 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
+          className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
           onClick={() => {
             const filterList = list.filter((res) => res.info.avgRating > 4.2);
             setFiltervalue(filterList);

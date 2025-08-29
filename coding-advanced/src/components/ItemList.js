@@ -42,7 +42,7 @@ const ItemList = ({ itemDataList }) => {
               )}
 
               <button
-                className=" bg-amber-500/95 hover:bg-amber-600/95 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
+                className=" bg-amber-600 hover:bg-amber-700 text-white font-bold py-1.5 px-4 rounded cursor-pointer"
                 onClick={() => addToCartItem(item)}
               >
                 Add
