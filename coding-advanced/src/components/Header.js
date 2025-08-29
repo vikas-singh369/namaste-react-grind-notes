@@ -19,6 +19,7 @@ const Header = () => {
         <li className=" font-bold p-2.5 hover:bg-amber-500/95 rounded-lg ">
           <Link to="/">Home</Link>
         </li>
+
         <li className="font-bold p-2.5 hover:bg-amber-500/95 rounded-lg">
           <Link to="/cart">🛒 - {cartItems.length}</Link>
         </li>
@@ -36,6 +37,9 @@ const Header = () => {
               {btnName}
             </button>
           </Link>
+        </li>
+        <li className="font-bold p-2.5 hover:bg-amber-500/95 rounded-lg">
+          <Link to="/about">About</Link>
         </li>
         <li className="font-bold p-2.5 hover:bg-amber-500/95 rounded-lg">
           <span>{onlineStatus ? "🟢" : "🔴"}</span> {logedInUser}
