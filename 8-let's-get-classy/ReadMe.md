@@ -133,6 +133,46 @@ There is a some common example for this :
 
 ## 5. Why do we use componentWillUnmount? Show with example
 
+ComponentWillUnmount method is called when component remove from the UI (DOM). It's a crucial part managing subscriptions to prevent memory leak and ensure component behavior is properly cleaned up.
+
+Here is some use ComponentWillUnmount
+
+**1. Clean up Resourse:** If component allocated some resources or such as evnet listner, timer , interval or DOM manipulations then it's essential to release those resource to prevent memory leak.
+
+
+**2.Cancel pending request:** If component has initiated any asynchorouns task like timer or intervel, so it's essential to cancel or clear that timer , interval or etc. to prevent memory leak and avoid unexpected behavior.
+
+
+```
+class MyComponent extends React.Component {
+  constructor(){
+    super();
+    this.PrintStatus = this.PrintStatus.bind(this);
+  }
+
+  ComponentDidMount(){
+    window.addEventListner("online", this.PrintStatus)
+  }
+
+
+  ComponentWillUnmount(){
+    window.removeEventListner("online", this.PrintStatus)
+  }
+
+  PrintStatus(event){
+    console.log("User Network Status:", event);
+  }
+
+  render(){
+    return (
+      <div>My Component </div>
+    )
+  }
+
+
+}
+
+```
 
 ## 6. (Research) Why do we use super(props) in constructor?
 
