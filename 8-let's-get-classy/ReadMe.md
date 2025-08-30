@@ -124,7 +124,12 @@ used for testing or non-browser envirnonments. it stores the history in memory, 
 **ComponentWillUnmount:** This method is called just we leave the component or we say unmount the compenent then it call. It's used to perform any necessary cleanup.
 
 ## 4. Why do we use componentDidMount?
+ComponentDidMount react class based component method it is used for specific perpose.It is immediately called after the component is inserted into the DOM. This makes a very crucial point in the component lifecycle to perform various task to interact with the DOM or externel resourse.
 
+There is a some common example for this :
+**1.Fetching-Data:** It is often used to perform asynchronous tasks like fetching data from an API. Once the data is received, the component updates and displays dynamic content.
+
+**2.Dom-Manipulations:** It can be used to directly manipulate the DOM, such as foucusing an input field adding event listner, intracting third party libraries such as charts or sliders etc.
 
 ## 5. Why do we use componentWillUnmount? Show with example
 
