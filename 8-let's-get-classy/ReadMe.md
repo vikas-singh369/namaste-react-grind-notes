@@ -109,3 +109,26 @@ used for testing or non-browser envirnonments. it stores the history in memory, 
 - React native or electron apps.
 
 
+## 3. What is the order of life cycle method calls in Class Based Components.
+`constructor()`-> `render()`-> `componentDidMount()`-> `componentDidUpdate()` -> `componentWillUnmount()`
+
+**Constructor:** First Constructor method is called when component is created. It's initilize component  state and bind event handlers.
+
+**Render:** After the constructor method called render method is called. Render method is responsible for rendering the component's UI. It must return jsx/ React element.
+
+**ComponentDidMount:** ComponentDidMount method immediatly called after the component insert into the DOM. It's often used for making request like api call or subscription and one time initilizations.
+
+**ComponentDidUpdate:** This method is called after the component has been updated,re-render the the component due to changes on state or props. It's often used for side effects like state or props changes then updating the DOM response.
+
+
+**ComponentWillUnmount:** This method is called just we leave the component or we say unmount the compenent then it call. It's used to perform any necessary cleanup.
+
+## 4. Why do we use componentDidMount?
+
+
+## 5. Why do we use componentWillUnmount? Show with example
+
+
+## 6. (Research) Why do we use super(props) in constructor?
+
+## (Research) Why can't we have the callback function of useEffect async?
