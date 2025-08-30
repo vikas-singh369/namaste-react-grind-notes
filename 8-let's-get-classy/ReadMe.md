@@ -203,4 +203,15 @@ super(props) pass the props object to the parent  (React.Componet) constructor.
 
 This makes `this.props` available inside to our constructor.
 
-## (Research) Why can't we have the callback function of useEffect async?
+## 7 (Research) Why can't we have the callback function of useEffect async?
+`useEffect()` hook is designed to handle side effect in functional components. It's powerful flexible to manging asynchronous operation fetching API call  and more. 
+
+useEffect callback cannot directly accept an async callback function. because its expect clean up callback funciton or either nothing undefined.
+
+when we declare an async then function return promise and useEffect doesn't work with promises returned.
+
+reason for this :
+because its expect either clean up callback funtion or either nothing undefined its break underline writen logic and give error.If we return a Promise, React doesn't know when or how to handle cleanup.
+
+
+**Note: Cleanup = sync function only, never async.**
