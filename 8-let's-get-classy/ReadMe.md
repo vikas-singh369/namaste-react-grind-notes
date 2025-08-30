@@ -172,5 +172,35 @@ class MyComponent extends React.Component {
 ```
 
 ## 6. (Research) Why do we use super(props) in constructor?
+Two main reason to use super(props) in constructor-
+
+**1.Access the parent class constructor:** In javascript `class` inhertence, if child defines its own constructor , it must call the parent constructor first. 
+
+Why? Because until the parent contructor runs this is not initialized -> we can't use this safely. 
+
+It keeps the inheritance chain valid (child can only use this after parent is set up).
+
+`
+class Parent {
+  constructor(props) {
+    this.name = props.name;
+  }
+}
+
+class Child extends Parent{
+  constructor(props){
+    super(props);
+    console.log("child Class:", this.name);
+
+    // without super we not able to access the name props.
+  }
+}
+`
+
+**2.Passing props to parent:** 
+
+super(props) pass the props object to the parent  (React.Componet) constructor.
+
+This makes `this.props` available inside to our constructor.
 
 ## (Research) Why can't we have the callback function of useEffect async?
