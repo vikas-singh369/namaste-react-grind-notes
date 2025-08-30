@@ -145,31 +145,28 @@ Here is some use ComponentWillUnmount
 
 ```
 class MyComponent extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.PrintStatus = this.PrintStatus.bind(this);
   }
 
-  ComponentDidMount(){
-    window.addEventListner("online", this.PrintStatus)
+  componentDidMount() {
+    window.addEventListener("online", this.PrintStatus);
   }
 
-
-  ComponentWillUnmount(){
-    window.removeEventListner("online", this.PrintStatus)
+  componentWillUnmount() {
+    window.removeEventListener("online", this.PrintStatus);
   }
 
-  PrintStatus(event){
+  PrintStatus(event) {
     console.log("User Network Status:", event);
   }
 
-  render(){
+  render() {
     return (
-      <div>My Component </div>
-    )
+      <div>My Component</div>
+    );
   }
-
-
 }
 
 ```
